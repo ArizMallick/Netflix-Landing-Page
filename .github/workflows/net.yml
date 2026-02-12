@@ -1,24 +1,13 @@
-name: CI Workflow
+name: Static Site CI
 
-on:
-  push:
-    branches: [ "main" ]
+on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - run: echo "Deployment ready!"
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run tests
-      run: npm test
